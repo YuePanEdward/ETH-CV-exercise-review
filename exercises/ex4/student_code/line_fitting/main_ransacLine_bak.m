@@ -1,0 +1,59 @@
+% =========================================================================
+% Line fitting with RANSAC
+% =========================================================================
+
+clear, close all
+addpath helpers
+figure(1); clf; hold on;
+
+% Generate noisy points for the real model
+num = 200; % number of points
+X = -num/2:num/2;
+outlr_ratio = .5;
+inlr_std = 4;
+k = .5;
+b = 10;
+pts = genRansacTestPoints(num, outlr_ratio, inlr_std, [k b]);
+plot(pts(1,:), pts(2,:),'.');
+
+
+%% (BLACK LINE) Real model of the line:  y = kx + b
+plot(X, k*X+b, 'k');
+err_real = sqr_error(k, b, pts(:,1:num*(1-outlr_ratio)))
+
+
+%% (GREEN LINE) least square fitting
+coef2 = polyfit(pts(1,:), pts(2,:), 1);
+k1 = coef2(1);
+b2 = coef2(2);
+plot(X,k1*X+b2,'g')
+
+% measure error on "true" inliers
+err_ls = sqr_error(k1, b2, pts(:,1:num*(1-outlr_ratio)))
+
+
+%% (RED LINE) RANSAC
+% According to p = 1-(1-r^n)^m   n=2 in this case and m is #iteration
+% when p>0.999 #iter=25 ; when p>0.99 #iter=16
+iter = 300; % originally 300   
+thresh_dist = 3;
+
+% TODO: implement ransacLine
+[k2, b2] = ransacLine(pts, iter, thresh_dist);
+
+[k3, b3] = ransacLine(pts, 25, thresh_dist);
+[k4, b4] = ransacLine(pts, 16, thresh_dist);
+
+plot(X, k2*X+b2,'r');
+
+% measure error on "true" inliers
+err_ransac = sqr_error(k2, b2, pts(:,1:num*(1-outlr_ratio)))
+
+err_ransac_p999 = sqr_error(k3, b3, pts(:,1:num*(1-outlr_ratio)))
+err_ransac_p99 = sqr_error(k4, b4, pts(:,1:num*(1-outlr_ratio)))
+
+%% Show inliers
+% Calculate distance from points to a line
+distance = (-pts(2,:)+k2*pts(1,:)+b2) / (sqrt(1+k2*k2));
+inlier_idx = find(abs(distance) <= thresh_dist);
+plot(pts(1,inlier_idx), pts(2,inlier_idx),'or');
