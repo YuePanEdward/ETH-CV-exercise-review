@@ -1,0 +1,2 @@
+run('D:\6_ETH\course\Computer Vision\assignment\Lab 07 - Structure from motion\Upload\code\vlfeat-0.9.21-bin\vlfeat-0.9.21\toolbox\vl_setup')
+addpath('D:\6_ETH\course\Computer Vision\assignment\Lab 07 - Structure from motion\Upload\code\GCMex-master\GCMex-master')
