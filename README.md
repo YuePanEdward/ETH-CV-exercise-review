@@ -19,4 +19,5 @@ SfM, Initialization, Essential Matrix, PnP problem, Triangulation, Dense reconst
 #### Ex 08 - Specific Object Recognition
 Template shape matching, Shape context, TPS transformation estimation
 #### Ex 09 - Shape from Silhouettes
+Shape from silhouettes
 
