@@ -20,4 +20,5 @@ SfM, Initialization, Essential Matrix, PnP problem, Triangulation, Dense reconst
 Template shape matching, Shape context, TPS transformation estimation
 #### Ex 09 - Shape from Silhouettes
 Shape from silhouettes
-
+#### Ex 10 - Image Categorization
+Histogram of Oriented Gradient(HOG), KMeans, Bag of Word, Nearest neighbor classification, Bayesian classification 
