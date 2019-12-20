@@ -22,3 +22,5 @@ Template shape matching, Shape context, TPS transformation estimation
 Shape from silhouettes
 #### Ex 10 - Image Categorization
 Histogram of Oriented Gradient(HOG), KMeans, Bag of Word, Nearest neighbor classification, Bayesian classification 
+#### Ex 11 - Condensation Tracker
+CONDENSATION algorithm, particle filter, tracking
