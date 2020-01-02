@@ -24,3 +24,36 @@ Shape from silhouettes
 Histogram of Oriented Gradient(HOG), KMeans, Bag of Word, Nearest neighbor classification, Bayesian classification 
 #### Ex 11 - Condensation Tracker
 CONDENSATION algorithm, particle filter, tracking
+
+### Review checklist
+#### Topic 1 - MVG
+- [ ] Basic geometry and algebra
+- [ ] Camera model
+- [ ] Structure from motion
+- [ ] Multiview stereo
+
+#### Topic 2 - Features
+- [ ] Harris corner
+- [ ] SIFT
+- [ ] Feature matching strategy
+
+#### Topic 3 - State estimation and tracking
+- [ ] Kalman filter
+- [ ] Particle filter
+- [ ] Optical flow
+
+#### Topic 4 - Segmentation
+- [ ] EM
+- [ ] Meanshift
+- [ ] Graph cut based
+- [ ] Deep learning based
+
+#### Topic 5 - Detection
+- [ ] Template matching
+- [ ] Sliding window and proposal
+- [ ] Deep learning based
+
+#### Topic 6 - Classification
+- [ ] Classifiers
+- [ ] Bag of word
+- [ ] Deep learning based
